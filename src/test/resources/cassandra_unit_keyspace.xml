@@ -1,0 +1,3 @@
+<keyspace xmlns="http://xml.dataset.cassandraunit.org">
+	<name>cassandra_unit_keyspace</name>
+</keyspace>
