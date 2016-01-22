@@ -16,7 +16,7 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 group = 'org.cukesalad'
 archivesBaseName = project.name
-version = '1.0.0'
+version = '1.0.1'
 jar {
   manifest {
     attributes 'Implementation-Title': 'Gradle Quickstart',
@@ -41,10 +41,17 @@ dependencies {
   //testCompile('io.dropwizard.metrics:metrics-core:3.1.0')
   //testCompile('com.codahale.metrics:metrics-core:3.0.2')
   testCompile('org.hectorclient:hector-core:1.1-4')
-  
+  testCompile('io.netty:netty-all:4.0.27.Final')
 }
 configurations {
-  compile.exclude group:'com.codahale.metrics', module: 'metrics-core'
+  testCompile.exclude group:'com.codahale.metrics', module: 'metrics-core'
+}
+
+test {
+  reports {
+      junitXml.enabled = true
+      html.enabled = true
+  }
 }
 
 task wrapper(type: Wrapper) {

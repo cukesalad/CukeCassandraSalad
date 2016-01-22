@@ -113,7 +113,7 @@ public class CassandraSaladStepsTest {
     assertEquals("$userid", rows.get(0).getString("userid"));
     
     // tear down that data and test if ther teardown worked
-    cassandraSaladSteps.i_teardown_data_using("deleteUser.cql");
+    cassandraSaladSteps.i_teardown_data_in_cassandra_using("deleteUser.cql");
     resultSet = CassandraSaladContext.cssndrasession.execute(cqlQuery.getCqlQuery());
     rows = resultSet.all();
     assertTrue("Expecting no result, but some result returned",rows.isEmpty());

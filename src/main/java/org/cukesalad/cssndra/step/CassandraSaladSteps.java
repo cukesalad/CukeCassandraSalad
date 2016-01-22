@@ -25,7 +25,7 @@ public class CassandraSaladSteps {
   public void i_set_up_data_in_cassandra_using_and_rollback_test_data_using_at_the_end_of_test_case(String setupFile, String tearDownFile)
       throws Throwable {
     // first clean dirty data
-    i_teardown_data_using(tearDownFile);
+    i_teardown_data_in_cassandra_using(tearDownFile);
     // then setup data
     i_set_up_data_in_cassandra_using(setupFile);
     collectTearDownFiles(tearDownFile,null);
@@ -44,8 +44,8 @@ public class CassandraSaladSteps {
     CassandraSaladContext.cssndrasession.execute(dynamicCQLQuery.getCqlQuery());
   }
 
-  @When("^I teardown data using \"([^\"]*)\"$")
-  public void i_teardown_data_using(String tearDownFile) throws Throwable {
+  @When("^I teardown data in cassandra using \"([^\"]*)\"$")
+  public void i_teardown_data_in_cassandra_using(String tearDownFile) throws Throwable {
     DynamicCQLQuery dynamicCQLQuery = new DynamicCQLQuery();
     dynamicCQLQuery.setCqlFileName(tearDownFile);
     CassandraSaladContext.cssndrasession.execute(dynamicCQLQuery.getCqlQuery());
