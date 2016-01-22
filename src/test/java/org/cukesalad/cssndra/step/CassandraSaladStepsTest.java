@@ -176,7 +176,7 @@ public class CassandraSaladStepsTest {
   }
 
   @Test
-  public void testI_setup_up_data_in_cassandra_using_which_will_rollback_at_the_end_using_and_below_parameters() throws Throwable {
+  public void testI_setup_up_data_in_cassandra_using_and_rollback_test_data_at_the_end_using_with_below_parameters() throws Throwable {
     List<List<String>> raw = new ArrayList<List<String>>();
     raw.add(Arrays.asList("key","value"));
     raw.add(Arrays.asList("userid","userid1"));
@@ -184,7 +184,7 @@ public class CassandraSaladStepsTest {
     raw.add(Arrays.asList("lname","lname1"));
     raw.add(Arrays.asList("email","email1"));
     DataTable parameters = DataTable.create(raw );
-    cassandraSaladSteps.i_setup_up_data_in_cassandra_using_which_will_rollback_at_the_end_using_and_below_parameters("insertUser.cql", "deleteUser.cql", parameters);
+    cassandraSaladSteps.i_setup_up_data_in_cassandra_using_and_rollback_test_data_at_the_end_using_with_below_parameters("insertUser.cql", "deleteUser.cql", parameters);
     
     // select the set up data and assert results
     DynamicCQLQuery cqlQuery = new DynamicCQLQuery();

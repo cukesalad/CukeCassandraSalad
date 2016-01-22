@@ -69,8 +69,8 @@ public class CassandraSaladSteps {
   }
 
  
-  @Given("^I set up data in cassandra using \"([^\"]*)\", which will rollback at the end using \"([^\"]*)\" and below parameters:$")
-  public void i_setup_up_data_in_cassandra_using_which_will_rollback_at_the_end_using_and_below_parameters(String setupFileName, String tearDownFileName, DataTable parameters) throws Throwable {
+  @Given("^I set up data in cassandra using \"([^\"]*)\", and rollback test data at the end using \"([^\"]*)\" with below parameters:$")
+  public void i_setup_up_data_in_cassandra_using_and_rollback_test_data_at_the_end_using_with_below_parameters(String setupFileName, String tearDownFileName, DataTable parameters) throws Throwable {
  // first clean dirty data
     i_teardown_data_in_cassandra_using_and_below_parameters(tearDownFileName, parameters);
     // then setup data

@@ -50,7 +50,7 @@ Feature: A feature to demonstrate Cassandra cucumber util to setup/teardown/vali
   | key    | value |
   | userid | 1     |
   Given I set up data in cassandra using "insertUser.cql", and rollback test data using "deleteUser.cql" at the end of test case
-  Given I set up data in cassandra using "insertUser.cql", which will rollback at the end using "deleteUser.cql" and below  parameters:
+  Given I set up data in cassandra using "insertUser.cql", and rollback test data at the end using "deleteUser.cql" with below  parameters:
   | key    | value |
   | userid | 1     |
   Given I set up data using the cql file "insertUser.cql", for the below data:
