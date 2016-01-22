@@ -1,4 +1,4 @@
-# CukeDBSalad
+# CukeCassandraSalad
 ##Who can use this?
 
 This module is intended to help in testing any application that has Cassandra interactions. It gives you an intuitive way of applying changed to Cassandra and validating data in Cassandra in cucumber steps. 
