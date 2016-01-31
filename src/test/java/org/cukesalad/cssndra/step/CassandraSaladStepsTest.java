@@ -235,10 +235,28 @@ public class CassandraSaladStepsTest {
     
     // assert using the method
     List<List<String>> raw = new ArrayList<List<String>>();
-    raw.add(Arrays.asList("userid","fname","lname","email"));
-    raw.add(Arrays.asList("$userid","$fname","$lname","$email"));
+    raw.add(Arrays.asList("userid","fname","lname","email","some"));
+    raw.add(Arrays.asList("$userid","$fname","$lname","$email","1"));
     DataTable expectedResults = DataTable.create(raw );
     cassandraSaladSteps.the_result_of_the_cql_is("selectUser.cql", expectedResults);
+  }
+
+  @Test
+  public void testThe_result_of_the_cql_has_rows() throws Throwable {
+    // setup a row of data
+    cassandraSaladSteps.i_set_up_data_in_cassandra_using("insertUser.cql");
+    
+    // assert using the method
+    cassandraSaladSteps.the_result_of_the_cql_has_rows("selectUser.cql",1);
+  }
+  
+  @Test
+  public void testThe_result_of_the_cql_is_empty() throws Throwable {
+    // remove the row of data
+    cassandraSaladSteps.i_set_up_data_in_cassandra_using("deleteUser.cql");
+    
+    // assert using the method
+    cassandraSaladSteps.the_result_of_the_cql_is_empty("selectUser.cql");
   }
 
   @Test

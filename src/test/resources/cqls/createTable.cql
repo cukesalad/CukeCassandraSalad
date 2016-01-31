@@ -3,4 +3,5 @@ create columnfamily if not exists user (
     fname text,
     lname text,
     email  text,
+    some int,
     primary key(userid) );

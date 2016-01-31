@@ -63,7 +63,8 @@ Feature: A feature to demonstrate Cassandra cucumber util to setup/teardown/vali
   | 1      | Ned      | Stark     | ned@gmail.com      |
   | 2      | Tyrion   | Lannister | tyrion@yahoo.com   |
   | 3      | Daenerys | Targeryan | daenerys@gmail.com |
-
+  And the result of the cql "selectUser.cql" is empty
+  And the result of the cql "selectUser.cql" has 1 rows
 ```
 ## What if i have different DB instances/schemas for different environments?
 Add files like ```cassandrasalad.dev.properties``` and pass a run time jvm arg like ```-Denv=dev```. The Cassandra details of ```cassandrasalad.dev.properties``` will override ```cassandrasalad.properties``` which is the default
